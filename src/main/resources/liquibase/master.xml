@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+ 
+  <changeSet id="schema_create" author="edr">
+ 
+    <comment>DDL statements for bookshelf database</comment>
+ 
+    <createTable tableName="auteur">
+      <column name="id" autoIncrement="true" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="pk_auteur" />
+      </column>
+      <column name="naam" type="varchar(200)"></column>
+      <column name="moedertaalid" type="int"/>
+    </createTable>
+    
+    <createTable tableName="boek">
+      <column name="id" autoIncrement="true" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="pk_boek" />
+      </column>
+      <column name="titel" type="varchar(200)"></column>
+      <column name="auteurid" type="int"/>
+    </createTable>
+ 
+    <createTable tableName="taal">
+      <column name="id" autoIncrement="true" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="pk_taal" />
+      </column>
+      <column name="naam" type="varchar(200)"></column>
+    </createTable>
+ 
+  </changeSet>
+
+  <changeSet id="database_inserts" author="edr">
+ 
+    <comment>DML statements for bookshelf database</comment>
+
+    <insert tableName="auteur">
+      <column name="id">1</column>
+      <column name="naam">Hugo Claus</column>
+      <column name="moedertaalid">1</column>
+    </insert>
+
+    <insert tableName="auteur">
+      <column name="id">2</column>
+      <column name="naam">Dimitri Verhulst</column>
+      <column name="moedertaalid">1</column>
+    </insert>
+    
+    <insert tableName="auteur">
+      <column name="id">3</column>
+      <column name="naam">Piet Huysentruyt</column>
+      <column name="moedertaalid">1</column>
+    </insert>
+    
+    <insert tableName="boek">
+      <column name="id">1</column>
+      <column name="titel">Verdriet van België</column>
+      <column name="auteurid">1</column>
+    </insert>
+    
+    <insert tableName="boek">
+      <column name="id">2</column>
+      <column name="titel">Hondsdagen</column>
+      <column name="auteurid">1</column>
+    </insert>
+    
+    <insert tableName="boek">
+      <column name="id">3</column>
+      <column name="titel">De helaasheid der dingen</column>
+      <column name="auteurid">2</column>
+    </insert>
+    
+ 	<insert tableName="boek">
+      <column name="id">4</column>
+      <column name="titel">SOS Piet 1</column>
+      <column name="auteurid">3</column>
+    </insert>
+    
+    <insert tableName="boek">
+      <column name="id">5</column>
+      <column name="titel">SOS Piet 2</column>
+      <column name="auteurid">3</column>
+    </insert>
+    
+    <insert tableName="boek">
+      <column name="id">6</column>
+      <column name="titel">SOS Piet 3</column>
+      <column name="auteurid">3</column>
+    </insert>
+    
+    <insert tableName="taal">
+      <column name="id">1</column>
+      <column name="naam">Nederlands</column>
+    </insert>
+    
+  </changeSet>
+
+</databaseChangeLog>

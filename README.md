@@ -1,2 +1,2 @@
 # sandbox
-# edr
+# edr - wat experimenten met JPA/hibernate
